@@ -11,5 +11,5 @@ class Locators(object):
     SIGNOUT_LINK = (By.LINK_TEXT, SIGNOUT_LINK_TEXT)
 
     @staticmethod    
-    def get_account_link(name):
-        return (By.XPATH, "a[span[contains(text(),'{}')]]".format(name))
+    def account_link(name):
+        return (By.XPATH, '//a[./span[contains(text(),"{}")]]'.format(name))

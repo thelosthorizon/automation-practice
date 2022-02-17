@@ -25,7 +25,7 @@ class NavBar(BasePage):
 
     def account_link(self, name):
         return self.wait.until(
-            EC.visibility_of_element_located(Locators.get_account_link(name))
+            EC.visibility_of_element_located(Locators.account_link(name))
         )
         
 

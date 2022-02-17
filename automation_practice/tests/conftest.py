@@ -9,7 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from pages.home import home
 from pages.account import account
 
-@pytest.fixture(scope="class")
+@pytest.fixture(scope="class", autouse=True)
 def chrome_driver_init(request):
     # ChromeDriverManager().install() to get location used by WebDriver manager and pass that to Service class
     service = ChromeService(executable_path=ChromeDriverManager().install())
@@ -24,7 +24,7 @@ def chrome_driver_init(request):
     chrome_driver.close()
 
 def pytest_addoption(parser):
-    parser.addoption("--timeout", action="store", default=10)
+    parser.addoption("--timeout", action="store", default=20)
 
 @pytest.fixture(scope="function", autouse=True)
 def timeout(request):
