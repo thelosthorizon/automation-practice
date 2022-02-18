@@ -1,5 +1,4 @@
 from selenium.common.exceptions import NoSuchElementException        
-from pages.base_page import BasePage
 from pages.login import (
     login_form,
     notifications,
@@ -8,18 +7,21 @@ from pages.login import (
     forgot_password_form
 )
 from pages.common.header import header
+from pages.common.footer import footer
+from pages.page import Page
 
 
-class Login(BasePage):
+class Login(Page):
     """This exposes all the sections/functionalities available via login page"""
 
     def __init__(self, driver, timeout):
         super().__init__(driver, timeout)
+        self.header = header.Header(self.driver, self.timeout)
+        self.footer = footer.Footer(self.driver, self.timeout)        
         self.login_form = login_form.LoginForm(self.driver, self.timeout)
         self.pre_signup_form = pre_signup_form.PreSignupForm(self.driver, self.timeout)
         self.signup_form = signup_form.SignupForm(self.driver, self.timeout)
         self.forgot_password_form = forgot_password_form.ForgotPasswordForm(self.driver, self.timeout)
-        self.header = header.Header(self.driver, self.timeout)
     
     def login(self, email, password):
         self.login_form.fill_in(email, password)
@@ -27,13 +29,13 @@ class Login(BasePage):
 
     def am_i_logged_in(self, name):
         try:
-            self.header.navbar.account_link(name)
+            self.header.account_link(name)
         except NoSuchElementException:
             return False
         return True
     
     def log_me_out(self):
-        self.header.navbar.signout_link.click()
+        self.header.signout_link.click()
     
     def login_failed(self):
         return notifications.generic_error_message_exists(self.wait)

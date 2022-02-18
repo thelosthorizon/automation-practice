@@ -12,7 +12,7 @@ Test major features/functionalities/user flows of Automation Practice Web app
 
 ### Test Planning
 
-> I have used Google's ACC __(Attributes-Components-Capabilities)__ method to come up with the test plan. Capabilities = Test scenarios i.e. something we test for
+> I have used Google's ACC __(Attributes-Components-Capabilities)__ method to come up with the test plan. Capabilities = Test scenarios i.e. something we test for. Both original mindmap and a pdf file is included. You can download community edition of xmind [here](https://www.xmind.net/download/) 
 
 > You can find the __color coded__ (based in risk matrix) high level test scenarios in the [test_plan](./test_plan.pdf). Note that there can be multiple tests within each test scenarios or a test can span across multiple scenarios
 
@@ -22,11 +22,11 @@ Test major features/functionalities/user flows of Automation Practice Web app
 
 ### Automation Specific Things
 
-> Not designed with portability in mind. Tested in __macOS Monterey 12.2__. Theoritically should work on a __linux distro__
+> Not designed with portability in mind. Tested in __macOS Monterey 12.2__. Will probably work on any __linux distro__
 
 > All the test files, pages and everything needed are located in __automation_practice__ directory
 
-> Run all the commands from `root` directory i.e. `automation_practice`
+> Run all the commands from `automation_practice` directory
 
 > The tests are organized in layers following __Page Object Model__ (follows application structure closely). Tests do not touch locators directly. Most common part of the application is represented using pages. Layering means that the testcase is written in business vernacular. Layering also means re-usability, modularity and easier to maintain tests when things change and break
 
@@ -81,22 +81,25 @@ If you are on _macos_ you should have python 3.x already installed. For other pl
 
 Run:
 ```
-    pip3 install --user virtualenv
-    virtualenv <name_of_virtual_env> --python=python3
-    . <name_of_virtual_env>/bin/activate
+pip3 install --user virtualenv
+virtualenv <name_of_virtual_env> --python=python3
+. <name_of_virtual_env>/bin/activate
 ```
 
 If you dont have a python3 symlink, you can substitute full path instead. To deactivate just simply run `deactivate`
 
 2. Install python dependencies
- ```pip install -r requirements.txt
- ```
+```
+pip install -r requirements.txt
+```
 
 3. Prepare reports directory
 
 Its a good idea to create a directory called _reports_ where all the test reports from test runs run reside
- ```mkdir reports
- ```
+```
+mkdir reports
+```
+
 
 4. Run the tests
 

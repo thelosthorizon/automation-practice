@@ -1,6 +1,6 @@
 from selenium.webdriver.support.ui import WebDriverWait
 
-class BasePage(object):
+class Page(object):
     def __init__ (self, driver, timeout):
         self.driver = driver
         self.timeout = timeout

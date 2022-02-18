@@ -1,10 +1,10 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
-from pages.base_page import BasePage
+from pages.page import Page
 from pages.account.locators import Locators
 
-class MyPage(BasePage):
+class MyPage(Page):
     
     def click_personal_information_link(self):     
         email_input = self.wait.until(

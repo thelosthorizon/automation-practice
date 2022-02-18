@@ -1,14 +1,12 @@
 
 from selenium.webdriver.common.by import By
 
-SIGNIN_LINK_TEXT = "Sign in"
-CONTACTUS_LINK_TEXT = "Contact Us"
-SIGNOUT_LINK_TEXT = "Sign out"
-
 class Locators(object): 
-    SIGNIN_LINK = (By.LINK_TEXT, SIGNIN_LINK_TEXT)
-    CONTACT_LINK = (By.LINK_TEXT, CONTACTUS_LINK_TEXT)
-    SIGNOUT_LINK = (By.LINK_TEXT, SIGNOUT_LINK_TEXT)
+    SIGNIN_LINK = (By.LINK_TEXT, "Sign in")
+    CONTACT_LINK = (By.LINK_TEXT, "Contact Us")
+    SIGNOUT_LINK = (By.LINK_TEXT, "Sign out")
+    SEARCHBAR_INPUT = (By.CSS_SELECTOR, 'input#{}'.format("search_query_top"))
+    SEARCHBAR_SEARCH_ICON = (By.XPATH, "//form[@id='searchbox']/button[@type='submit']")
 
     @staticmethod    
     def account_link(name):

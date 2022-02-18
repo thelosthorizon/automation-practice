@@ -3,13 +3,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.action_chains import ActionChains
 
-from pages.base_page import BasePage
+from pages.page import Page
 from pages.login.locators import Locators
 
 import time
 
 
-class SignupForm(BasePage):
+class SignupForm(Page):
     
     def fill_in_personal_data(self, newuserdata):     
         firstname_input = self.wait.until(

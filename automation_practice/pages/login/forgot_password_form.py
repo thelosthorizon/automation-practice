@@ -1,10 +1,10 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
-from pages.base_page import BasePage
+from pages.page import Page
 from pages.login.locators import Locators
 
-class ForgotPasswordForm(BasePage):
+class ForgotPasswordForm(Page):
     
     def fill_in(self, email):     
         email_input = self.wait.until(

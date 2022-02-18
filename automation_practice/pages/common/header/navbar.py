@@ -1,9 +1,9 @@
 from selenium.webdriver.support import expected_conditions as EC
 
-from pages.base_page import BasePage
+from pages.page import Page
 from pages.common.header.locators import Locators
 
-class NavBar(BasePage):
+class NavBar(Page):
 
     @property
     def signin_link(self):
