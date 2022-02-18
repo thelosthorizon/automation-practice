@@ -1,4 +1,4 @@
-from selenium.common.exceptions import NoSuchElementException        
+from selenium.common.exceptions import TimeoutException        
 from pages.login import (
     login_form,
     notifications,
@@ -30,7 +30,7 @@ class Login(Page):
     def am_i_logged_in(self, name):
         try:
             self.header.account_link(name)
-        except NoSuchElementException:
+        except TimeoutException:
             return False
         return True
     
@@ -55,7 +55,7 @@ class Login(Page):
     def password_reset_confirmation_email_sent(self, email):
         try:
             notifications.password_reset_confirmation_email_msg(self.wait, email)
-        except NoSuchElementException:
+        except TimeoutException:
             return False
         return True
 

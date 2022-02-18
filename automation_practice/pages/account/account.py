@@ -1,4 +1,3 @@
-from selenium.common.exceptions import NoSuchElementException        
 from pages.account import (
     my_page
 )

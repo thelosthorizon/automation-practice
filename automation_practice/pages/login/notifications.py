@@ -1,6 +1,6 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException        
+from selenium.common.exceptions import TimeoutException        
 
 from pages.page import Page
 from pages.login.locators import Locators
@@ -11,7 +11,7 @@ def generic_error_message_exists(wait):
         wait.until(
             EC.visibility_of_element_located(Locators.ERROR_MESSAGE_PARA)
         )   
-    except NoSuchElementException:
+    except TimeoutException:
         return False
     return True
 

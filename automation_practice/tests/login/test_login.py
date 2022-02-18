@@ -28,7 +28,7 @@ class Test_Login():
         assert self.login_page.password_reset_confirmation_email_sent(existinguserdata["Email"])
 
     @pytest.mark.usefixtures("bogusemail")
-    def test_forgot_password_unregistered_account(self, bogusemail):
+    def test_forgot_password(self, bogusemail):
         self.login_page.forgot_password(bogusemail)
         assert self.login_page.password_reset_failed()
 

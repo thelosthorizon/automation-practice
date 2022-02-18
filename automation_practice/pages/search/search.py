@@ -19,7 +19,13 @@ class Search(Page):
 
     @property    
     def count_results(self):
-        return self.results.number_of_matching_products
+        return self.results.number_of_hits
+
+    def search_result_message_should_contain(self, number):
+        return self.results.search_result_message(number)
+    
+    def click_any_result(self):
+        self.results.click_any_result()
     
     def loaded(self):
         if (self.driver.title == "Search - My Store"):
